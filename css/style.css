@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css?family=Trade+Winds&display=swap');
+* {
+    font-family: 'Trade Winds'; 
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../assets/background.gif);
+    background-size: cover;
+}
+
+#vue-el {
+    width: 500px;
+    height: auto;
+    margin: auto;
+    padding: 50px;
+    background-color: rgba(245, 245, 245, 0.750);
+}
+
+#killCount {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    margin: 0;
+    text-transform: uppercase;
+    color: white;
+    font-size: 1.4em;
+    animation-name: flashing;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+}
+
+#controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+button {
+    height: 40px;
+    width: 80px;
+}
+
+#hit {
+    margin: 0 10px;
+    background-image: linear-gradient(to bottom right, rgb(168, 15, 15), rgb(207, 18, 18));
+    color: white;
+}
+
+#damage-ind p {
+    text-align: center;
+}
+
+.bigHealthNumb {
+    font-size: 2em;
+    color: rgb(182, 31, 31);
+}
+
+#critical {
+    display: none;
+    color: rgb(182, 31, 31);
+    font-size: 1.4em;
+}
+
+#critical.show {
+    display: block;
+}
+
+#gameOverText {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    font-size: 5em;
+    color: rgb(128, 6, 6);
+    animation-name: flashing;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+}
+
+@keyframes flashing {
+    0%{color: orange;}	
+    10%{color: purple;}	
+	20%{color: red;}
+    30%{color: CadetBlue;}
+	40%{color: yellow;}
+    50%{color: coral;}
+	60%{color: green;}
+    70%{color: cyan;}
+    80%{color: DeepPink;}
+    90%{color: DodgerBlue;}
+	100%{color: orange;}
+  }
+
+#restart {
+    margin: 0 10px;
+    background-image: linear-gradient(to bottom right, rgb(17, 122, 17), rgb(38, 177, 38));
+    color: white;
+}
+
+#player {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    image-rendering: pixelated;
+    background-size: 70%;
+}
+
+#player.fine {
+    background: url(../assets/doom_guy_healthy.png) center no-repeat;
+    background-size: 70%;
+}
+
+#player.fine_crit {
+    background: url(../assets/doom_guy_healthy_crit.png) center no-repeat;
+    background-size: 70%;
+}
+
+#player.ouch {
+    background: url(../assets/doom_guy_hurt.png) center no-repeat;
+    background-size: 70%;
+}
+
+#player.ouch_crit {
+    background: url(../assets/doom_guy_hurt_crit.png) center no-repeat;
+    background-size: 70%;
+}
+
+#player.almost {
+    background: url(../assets/doom_guy_wounded.png) center no-repeat;
+    background-size: 70%;
+}
+
+#player.almost_crit {
+    background: url(../assets/doom_guy_wounded_crit.png) center no-repeat;
+    background-size: 70%;
+}
+
+#player.lastBreath {
+    background: url(../assets/doom_guy_deaths_door.png) center no-repeat;
+    background-size: 70%;
+}
+
+#player.lastBreath_crit {
+    background: url(../assets/doom_guy_deaths_door_crit.png) center no-repeat;
+    background-size: 70%;
+}
+
+#player.dead {
+    background: url(../assets/doom_guy_dead.png) center no-repeat;
+    background-size: 70%;
+}
+
+#damage-ind {
+    margin: 0 auto 20px auto;
+    width: 200px;
+    height: 170px;
+}
+
+#player-health {
+    margin: 0 auto 20px auto;
+    width: 150px;
+    height: 150px;
+    box-sizing: border-box;
+    position: relative;
+    border-radius: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#orb {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    position: absolute;
+    z-index: 9999999;
+}
+
+#orb img {
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    filter: opacity(80%)
+}
+
+#health-bar-color {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    filter: hue-rotate(280deg) saturate(150%);
+    background-image: url(../assets/health-bar.gif);
+    border-radius: 500px;
+    background-size: 1000%;
+    background-position: center;
+    clip-path: inset(0% 0% 0% 0%);
+}

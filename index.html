@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Doom guy being cock and ball tortured</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/doom_guy_healthy_crit.png">
+</head>
+<body>
+    <div id="vue-el">
+        <div id="killCount">
+            <h2>You've killed: {{numberOfDoomGuys}} Doom Guys!</h2>
+        </div>
+        <div id="player" v-bind:class="{dead: ended, lastBreath: almostDead, lastBreath_crit: almostDeadCrit, almost: close, almost_crit: closeCrit, ouch_crit: hurtsCrit, ouch: hurts, fine_crit: fineCrit, fine: fine}" >
+
+        </div>
+
+        <div id="damage-ind">
+            <p>Health: <span class="bigHealthNumb">{{health}}</span></p>
+            <p>Damage: <span class="bigHealthNumb">{{damageDealt}}</span> <br><span id="critical" v-bind:class="{show: crit}">CRITICAL HIT</span></p>
+        </div>
+        <p id="gameOverText" v-show="ended">You've killed Doom Guy!</p>
+
+        <div id="player-health">
+            <div id="orb">
+                <img src="assets/health-orb.png" alt="orb for health">
+            </div>
+            <div id="health-bar-color" :style="'clip-path: inset(' + damage + '% 0% 0% 0%)'">
+
+            </div>
+        </div>
+        
+        <div id="controls">
+            <button id="hit" v-on:click="hit" v-show="!ended" onclick="play()">Damage</button>
+            <button id="restart" v-on:click="restart">Restart</button>
+        </div>
+
+        <script>
+            function play() {
+                var audio = document.getElementById("audioStart");
+                audio.play();
+            }
+        </script>
+        <audio autoplay loop id="audioStart">
+            <source src="assets/Doom OST 1.mp3" type="audio/mp3">
+        </audio>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>
